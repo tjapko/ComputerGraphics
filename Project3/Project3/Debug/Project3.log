@@ -1,0 +1,25 @@
+﻿  myFunctions.cpp
+c:\users\gebruiker\documents\visual studio 2015\projects\project3\myfunctions.cpp(58): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gebruiker\documents\visual studio 2015\projects\project3\myfunctions.cpp(59): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gebruiker\documents\visual studio 2015\projects\project3\myfunctions.cpp(78): warning C4551: function call missing argument list
+c:\users\gebruiker\documents\visual studio 2015\projects\project3\myfunctions.cpp(124): warning C4018: '<': signed/unsigned mismatch
+c:\users\gebruiker\documents\visual studio 2015\projects\project3\myfunctions.cpp(131): warning C4018: '<': signed/unsigned mismatch
+c:\users\gebruiker\documents\visual studio 2015\projects\project3\myfunctions.cpp(132): warning C4018: '<': signed/unsigned mismatch
+c:\users\gebruiker\documents\visual studio 2015\projects\project3\myfunctions.cpp(137): warning C4018: '<': signed/unsigned mismatch
+c:\users\gebruiker\documents\visual studio 2015\projects\project3\myfunctions.cpp(140): error C3867: 'std::vector<std::vector<unsigned int,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>::at': non-standard syntax; use '&' to create a pointer to member
+          with
+          [
+              _Ty=unsigned int
+          ]
+c:\users\gebruiker\documents\visual studio 2015\projects\project3\myfunctions.cpp(140): error C2109: subscript requires array or pointer type
+c:\users\gebruiker\documents\visual studio 2015\projects\project3\myfunctions.cpp(149): warning C4018: '<': signed/unsigned mismatch
+c:\users\gebruiker\documents\visual studio 2015\projects\project3\myfunctions.cpp(152): warning C4018: '<': signed/unsigned mismatch
+c:\users\gebruiker\documents\visual studio 2015\projects\project3\myfunctions.cpp(174): warning C4018: '<': signed/unsigned mismatch
+c:\users\gebruiker\documents\visual studio 2015\projects\project3\myfunctions.cpp(177): warning C4018: '<': signed/unsigned mismatch
+c:\users\gebruiker\documents\visual studio 2015\projects\project3\myfunctions.cpp(186): warning C4018: '<': signed/unsigned mismatch
+c:\users\gebruiker\documents\visual studio 2015\projects\project3\myfunctions.cpp(208): warning C4018: '<': signed/unsigned mismatch
+c:\users\gebruiker\documents\visual studio 2015\projects\project3\myfunctions.cpp(239): warning C4018: '<': signed/unsigned mismatch
+c:\users\gebruiker\documents\visual studio 2015\projects\project3\myfunctions.cpp(251): warning C4018: '<': signed/unsigned mismatch
+c:\users\gebruiker\documents\visual studio 2015\projects\project3\myfunctions.cpp(264): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\gebruiker\documents\visual studio 2015\projects\project3\myfunctions.cpp(265): warning C4018: '<': signed/unsigned mismatch
+c:\users\gebruiker\documents\visual studio 2015\projects\project3\myfunctions.cpp(266): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
