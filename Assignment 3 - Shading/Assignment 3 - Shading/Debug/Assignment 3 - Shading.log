@@ -1,25 +1,25 @@
 ﻿  mesh.cpp
-c:\users\gebruiker\documents\visual studio 2015\projects\assignment 3 - shading\mesh.cpp(22): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\gebruiker\documents\visual studio 2015\projects\assignment 3 - shading\mesh.cpp(31): warning C4305: '+=': truncation from 'double' to 'float'
-c:\users\gebruiker\documents\visual studio 2015\projects\assignment 3 - shading\mesh.cpp(34): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\gebruiker\documents\visual studio 2015\projects\assignment 3 - shading\mesh.cpp(71): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
-c:\users\gebruiker\documents\visual studio 2015\projects\assignment 3 - shading\mesh.cpp(90): warning C4018: '<': signed/unsigned mismatch
-c:\users\gebruiker\documents\visual studio 2015\projects\assignment 3 - shading\mesh.cpp(105): warning C4018: '<': signed/unsigned mismatch
-c:\users\gebruiker\documents\visual studio 2015\projects\assignment 3 - shading\mesh.cpp(238): warning C4018: '<': signed/unsigned mismatch
+c:\users\gebruiker\source\repos\computergraphics\assignment 3 - shading\mesh.cpp(22): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\gebruiker\source\repos\computergraphics\assignment 3 - shading\mesh.cpp(31): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\gebruiker\source\repos\computergraphics\assignment 3 - shading\mesh.cpp(34): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\gebruiker\source\repos\computergraphics\assignment 3 - shading\mesh.cpp(71): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\gebruiker\source\repos\computergraphics\assignment 3 - shading\mesh.cpp(90): warning C4018: '<': signed/unsigned mismatch
+c:\users\gebruiker\source\repos\computergraphics\assignment 3 - shading\mesh.cpp(105): warning C4018: '<': signed/unsigned mismatch
+c:\users\gebruiker\source\repos\computergraphics\assignment 3 - shading\mesh.cpp(238): warning C4018: '<': signed/unsigned mismatch
   main.cpp
-c:\users\gebruiker\documents\visual studio 2015\projects\assignment 3 - shading\matrix.h(35): warning C4244: '+=': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\gebruiker\documents\visual studio 2015\projects\assignment 3 - shading\matrix.h(45): warning C4244: '+=': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\gebruiker\documents\visual studio 2015\projects\assignment 3 - shading\matrix.h(47): warning C4244: '=': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\gebruiker\documents\visual studio 2015\projects\assignment 3 - shading\traqueboule.h(13): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\gebruiker\documents\visual studio 2015\projects\assignment 3 - shading\traqueboule.h(105): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\gebruiker\documents\visual studio 2015\projects\assignment 3 - shading\traqueboule.h(128): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\gebruiker\documents\visual studio 2015\projects\assignment 3 - shading\traqueboule.h(159): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\gebruiker\documents\visual studio 2015\projects\assignment 3 - shading\traqueboule.h(208): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\gebruiker\documents\visual studio 2015\projects\assignment 3 - shading\yourcode.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\gebruiker\documents\visual studio 2015\projects\assignment 3 - shading\yourcode.h(48): warning C4305: '-=': truncation from 'double' to 'float'
-c:\users\gebruiker\documents\visual studio 2015\projects\assignment 3 - shading\yourcode.h(51): warning C4305: '+=': truncation from 'double' to 'float'
-c:\users\gebruiker\documents\visual studio 2015\projects\assignment 3 - shading\main.cpp(27): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-c:\users\gebruiker\documents\visual studio 2015\projects\assignment 3 - shading\main.cpp(27): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\gebruiker\source\repos\computergraphics\assignment 3 - shading\matrix.h(35): warning C4244: '+=': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\gebruiker\source\repos\computergraphics\assignment 3 - shading\matrix.h(45): warning C4244: '+=': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\gebruiker\source\repos\computergraphics\assignment 3 - shading\matrix.h(47): warning C4244: '=': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
+c:\users\gebruiker\source\repos\computergraphics\assignment 3 - shading\traqueboule.h(13): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\gebruiker\source\repos\computergraphics\assignment 3 - shading\traqueboule.h(105): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\gebruiker\source\repos\computergraphics\assignment 3 - shading\traqueboule.h(128): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\gebruiker\source\repos\computergraphics\assignment 3 - shading\traqueboule.h(159): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\gebruiker\source\repos\computergraphics\assignment 3 - shading\traqueboule.h(208): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\gebruiker\source\repos\computergraphics\assignment 3 - shading\yourcode.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\gebruiker\source\repos\computergraphics\assignment 3 - shading\yourcode.h(48): warning C4305: '-=': truncation from 'double' to 'float'
+c:\users\gebruiker\source\repos\computergraphics\assignment 3 - shading\yourcode.h(51): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\gebruiker\source\repos\computergraphics\assignment 3 - shading\main.cpp(27): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\users\gebruiker\source\repos\computergraphics\assignment 3 - shading\main.cpp(27): warning C4305: 'initializing': truncation from 'double' to 'float'
   Generating Code...
-  Assignment 3 - Shading.vcxproj -> c:\users\gebruiker\documents\visual studio 2015\Projects\Assignment 3 - Shading\Debug\Assignment 3 - Shading.exe
-  Assignment 3 - Shading.vcxproj -> c:\users\gebruiker\documents\visual studio 2015\Projects\Assignment 3 - Shading\Debug\Assignment 3 - Shading.pdb (Partial PDB)
+  Assignment 3 - Shading.vcxproj -> C:\Users\Gebruiker\Source\Repos\ComputerGraphics\Assignment 3 - Shading\Debug\Assignment 3 - Shading.exe
+  Assignment 3 - Shading.vcxproj -> C:\Users\Gebruiker\Source\Repos\ComputerGraphics\Assignment 3 - Shading\Debug\Assignment 3 - Shading.pdb (Partial PDB)
