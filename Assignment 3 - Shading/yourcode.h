@@ -98,8 +98,28 @@ Vec3Df debugColor(unsigned int index)
 //
 Vec3Df diffuseOnly(const Vec3Df & vertexPos, Vec3Df & normal, const Vec3Df & lightPos, unsigned int index)
 {	
-	Vec3Df Kd = dot
-	Vec3Df D = Id * Kd * cos(theta);
+	Vec3Df output;
+	Vec3Df L = lightPos - vertexPos;
+	float cosTheta = Vec3Df::dotProduct(normal, L); 
+	for(int i = 0; i < 3; i++) {
+		output[i] = bla bla
+	}
+		Vec3Df D = Kd * cosTheta;
+		
+
+	glBegin(GL_TRIANGLES);
+	for (int j = 0; j < MyMesh.triangles.size(); j++) {
+		for (int i = 0; i < 3; i++) {
+			glColor3f(output[0], output[1], output[2]);
+			glVertex3f(MyMesh.vertices.at((MyMesh.triangles.at(j).v[i])).p[0], MyMesh.vertices.at((MyMesh.triangles.at(j).v[i])).p[1],
+				MyMesh.vertices.at((MyMesh.triangles.at(j).v[i])).p[2]);
+		}
+	}
+	glEnd();
+}
+
+	
+
 
 	return Vec3Df(1,0,0);
 }

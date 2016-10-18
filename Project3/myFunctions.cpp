@@ -36,15 +36,21 @@
 #include "Vec3D.h"
 #include "mesh.h"
 #include <GL/glut.h>
+#include "myFunctions.h"
 using namespace std;
 
 vector<vector<unsigned int>> vertexNeighbours;
 vector<vector<unsigned int>> edges;
+vector<vector<unsigned int>> triangleNeighbours;
+vector<vector<pair<unsigned int, bool>>> boundaryEdgeNetwork;
+vector<Vec3Df> averages;
+vector<Vec3Df> distanceMeshAverage;
 
  // A boolean that we set to true when we want to draw the baryCenters
 bool drawBaryCenters = false;
 bool drawNormals = false;
 bool drawColoredTriangles = false;
+bool drawBoundaries = false;
 
 // NOTE THAT WE PASS THE MESH AS Mesh& m, and not just Mesh m, like I did in the lecture.
 // That caused the mesh to be copied everytime this function gets executed and is what
@@ -116,32 +122,91 @@ void generateVertexNeighbours(Mesh m) {
 	}
 }
 
+void generateTriangleNeighbours(Mesh m) {
+	//triangleneigbours initiliase and resize
+	triangleNeighbours.resize(m.triangles.size());
+	//loop over all triangles
+	for (int i = 0; i < m.triangles.size(); i++) {
+		Triangle currentTriangle = m.triangles.at(i);
+		//loop three times (becasue a triangle can only have three neighbours
+		for (int j = 0; j < 3; j++) {
+			int vertexA = currentTriangle.v[j];
+			int vertexB = currentTriangle.v[(j + 1) % 3];
+			for (int k = 0; k < m.triangles.size(); k++) {
+				if (i != k) {
+					if (m.triangles.at(k).v[0] == vertexA && m.triangles.at(k).v[1] == vertexB) {
+						triangleNeighbours.at(i).push_back(k);
+						k = m.triangles.size();
+					}
+					else if (m.triangles.at(k).v[0] == vertexB && m.triangles.at(k).v[1] == vertexA) {
+						triangleNeighbours.at(i).push_back(k);
+						k = m.triangles.size();
+					}
+					else if (m.triangles.at(k).v[1] == vertexA && m.triangles.at(k).v[2] == vertexB) {
+						triangleNeighbours.at(i).push_back(k);
+						k = m.triangles.size();
+					}
+					else if (m.triangles.at(k).v[1] == vertexB && m.triangles.at(k).v[2] == vertexA) {
+						triangleNeighbours.at(i).push_back(k);
+						k = m.triangles.size();
+					}
+					else if (m.triangles.at(k).v[0] == vertexA && m.triangles.at(k).v[2] == vertexB) {
+						triangleNeighbours.at(i).push_back(k);
+						k = m.triangles.size();
+					}
+					else if (m.triangles.at(k).v[0] == vertexB && m.triangles.at(k).v[2] == vertexA) {
+						triangleNeighbours.at(i).push_back(k);
+						k = m.triangles.size();
+					}
+				}
+			}
+		}
+	}
+			// vertex a = currenttriangle[0]
+			// same for vertex b
+	cout << "Yeeey we did it motherfucker";
+			//loop over all triangles
+				//if vertex a and b exist in triangle, add it to the neighbours of current triangle
+				//if 3 neighbours are found, break out of the for loop;
+
+			
+}
+
 void generateEdges(Mesh m) {
 	unsigned int someVertex = 0;			//Start with first vertex to make an edge out of.
 	generateVertexNeighbours(m);				//Generate neighbour network
 	cout << vertexNeighbours.at(5)[2];
-	edges.resize(m.vertices.size());
+	edges.resize(m.vertices.size()*4);
 	for (int i = 0; i < edges.size(); i++){
-		edges.at(i).resize(4);
 		for (int j = 0; j < 4; j++) {
 			edges.at(i).push_back(0);
 		}
 	}
+	int EdgeIndex = 0;
 
 	for (int i = 0; i < m.vertices.size(); i++) {					//Iterate over each vertex
 		for (int j = 0; j < vertexNeighbours.at(i).size(); j++) {	//Iterate over each neighbour of this vertex
-			if (edges.size() == 0) {
-				edges[0].push_back(i);
-				edges[0].push_back(vertexNeighbours.at(i)[j]);
+			unsigned int CurrentNeighbour = vertexNeighbours.at(i)[j];
+
+			//Check if there is an edge in which this combination exists.
+			//If there is no edge in which this combination exists, then fill this edge with these values.
+
+			//if it exists, make a boolean true.
+
+			//Make another if statement with this boolean as input
+			bool doesItExist = false;
+			for (int k = 0; k < EdgeIndex; k++) {//Iterate over all existing edges
+				if ((edges.at(k)[0] == i && edges.at(k)[1] == CurrentNeighbour)			//Check if this edge doesn't already exist
+					|| (edges.at(k)[1] == i && edges.at(k)[0] == CurrentNeighbour)) {
+					doesItExist = true;
+					break;
+				}
 			}
-			for (int k = 0; k < edges.size(); k++) {												//Iterate over all existing edges
-	//			//if ((edges.at[k][0] == i && edges.at[k][1] == vertexNeighbours.at(i)[j])			//Check if this edge doesn't already exist
-	//			//	&& (edges.at[k][1] == i && edges.at[k][0] == vertexNeighbours.at(i)[j])) {
-				if (!(edges.at[k][0] == i)) {} //&& !(edges.at[k][1] == vertexNeighbours.at(i)[j])) {}
-						//if(!(edges.at[k][1] == i) && !(edges.at[k][0] == vertexNeighbours.at(i)[j])){
-						//		edges[j].push_back(i);														//Add current vertex
-						//		edges[j].push_back(vertexNeighbours.at(i)[j]);
-						//}								//Add its current neighbour
+			if(!doesItExist){
+				edges.at(EdgeIndex)[0] = i;														//Add current vertex
+				edges.at(EdgeIndex)[1] = CurrentNeighbour;								//Add its current neighbour
+			//	cout << "Edge " << EdgeIndex << " created with vertices " << i << " and " << CurrentNeighbour << "\n";
+				EdgeIndex++;
 			}
 		}
 	}	
@@ -162,6 +227,157 @@ void generateEdges(Mesh m) {
 
 		}
 	}
+	cout << "Created edge network";
+}
+
+void generateEdgesEfficient(Mesh m) {
+	//Generate matrix (vertex * vertex) and fill with -1.
+	vector<vector<int>> matrix;
+	matrix.resize(m.vertices.size());
+	for (int i = 0; i < m.vertices.size(); i++) {
+		matrix.at(i).resize(m.vertices.size());
+	}
+	for (int i = 0; i < matrix.size(); i++) {
+		for (int j = 0; j < matrix.at(i).size(); j++) {
+			matrix.at(i).at(j) = -1;
+		}
+	}
+	
+	edges.resize(3 * m.vertices.size());
+	for (int i = 0; i < edges.size(); i++) {
+		edges.at(i).resize(4);
+		for (int j = 0; j < 4; j++) {
+			edges.at(i).at(j) = -1;
+		}
+	}
+	unsigned int edgeIndex = 0;
+
+	//loop over all triangles
+	for (int i = 0; i < m.triangles.size(); i++) {
+		Triangle currentTriangle = m.triangles.at(i);
+		for (int j = 0; j < 3; j++) {
+			unsigned int vertexA = currentTriangle.v[j];
+			unsigned int vertexB = currentTriangle.v[(j + 1) % 3];
+
+			if (matrix.at(vertexA).at(vertexB) == -1) {
+				edges[edgeIndex][0] = vertexA;
+				edges[edgeIndex][1] = vertexB;
+				edges[edgeIndex][2] = i;
+				matrix.at(vertexA).at(vertexB) = edgeIndex;
+				matrix.at(vertexB).at(vertexA) = edgeIndex;
+				edgeIndex++;
+			}
+
+			else {
+				edges[matrix.at(vertexA).at(vertexB)][3] = i;
+			}
+		}
+	}
+		//current triangle = current triangle
+		//loop over vertex combinations in current triangle
+			//Check matrix. If this combination has value -1: intialise an edge
+			//Store the vertices in the edge + the current triangle.
+			//Change the value in matrix to the edge index. (change both!)
+			
+			//Check matrix. If this combination has a value above -1:
+			//add the triangle to the existing edge using the edge index in the matrix
+	//dont forget to print a 'done'.
+}
+
+void boundaryVertices(Mesh& m) {
+	generateEdgesEfficient(m);					//First generate edges to use in this method
+
+	bool boundaryVertices = false;				
+	int amountOfBoundaryEdges = 0;				//Initialise the amount of boundary edges to 0;
+	for (int edgeIndex = 0; edgeIndex < edges.size(); edgeIndex++) {			//Loop over all edges
+		if (edges.at(edgeIndex)[3] == -1) {										//If this edge has only 1 triangle
+			boundaryVertices = true;											//Set boundaryVertices to true.
+			amountOfBoundaryEdges++;											//Increment amount of boundary edges
+		}
+	}
+
+	if (boundaryVertices) {														//Only performs this if there are any boundary vertices.
+		boundaryEdgeNetwork.resize(amountOfBoundaryEdges);						//resize the amount of boundary components to the amount of boundary edges. (is too much but ok)
+		for (int i = 0; i < boundaryEdgeNetwork.size(); i++) {					//Loop over this network
+			boundaryEdgeNetwork.at(i).resize(amountOfBoundaryEdges);			//Resize all vector lists to the amount of boundary edges.
+		}
+
+		vector<pair<unsigned int, bool>> boundaryEdges;							//Initialise a temporary list for storing all boundary edges and its markings
+		boundaryEdges.resize(amountOfBoundaryEdges);							//resize it
+		unsigned int boundaryEdgesIndex = 0;									//Set beginning index
+		for (int edgeIndex = 0; edgeIndex < edges.size(); edgeIndex++) {		//Loop over all edges to pick out boundary edges
+			if (edges.at(edgeIndex).at(3) == -1) {								// and store them in the temporary list
+				boundaryEdges.at(boundaryEdgesIndex).first = edgeIndex;
+				boundaryEdges.at(boundaryEdgesIndex).second = false;			// + make their marking false
+				boundaryEdgesIndex++;
+			}
+		}
+
+		int listIndex = 0;				//Index of Boundary components				//Index of Boundary edges per boundary component
+
+		for (int edgeIndex = 0; edgeIndex < boundaryEdges.size(); edgeIndex++) {		//Loop over all boundary edges
+			if (!boundaryEdges.at(edgeIndex).second) {									//Check if edge is unmarked
+				int Enummer = 0;
+				unsigned int currentEdge = edgeIndex;									//Make this the current edge
+				boundaryEdgeNetwork[listIndex].at(Enummer).first = currentEdge;			//Add this edge to the final vector
+				boundaryEdgeNetwork[listIndex].at(Enummer).second = true;				//Mark 
+				boundaryEdges.at(edgeIndex).second = true;
+				Enummer++;
+				int vertexA = edges.at(boundaryEdges.at(edgeIndex).first).at(0);
+				int vertexNext = edges.at(boundaryEdges.at(edgeIndex).first).at(1);
+				bool notDone = true;
+				while (notDone) {
+					for (int i = 0; i < boundaryEdges.size(); i++) {
+						if (edges.at(boundaryEdges.at(i).first).at(0) == vertexNext &&
+							!boundaryEdgeNetwork[listIndex].at(Enummer - 1).second) {
+
+							boundaryEdgeNetwork[listIndex].at(Enummer).first = boundaryEdges.at(i).first;
+							boundaryEdgeNetwork[listIndex].at(Enummer).second = true;
+							boundaryEdges.at(Enummer).second = true;
+							Enummer++;
+							vertexNext = edges.at(boundaryEdges.at(i).first).at(1);
+							if (vertexNext == vertexA)
+								notDone = false;
+						}
+						else if (edges.at(boundaryEdges.at(i).first).at(1) == vertexNext &&
+							!boundaryEdgeNetwork[listIndex].at(Enummer - 1).second) {
+
+							boundaryEdgeNetwork[listIndex].at(Enummer).first = boundaryEdges.at(i).first;
+							boundaryEdgeNetwork[listIndex].at(Enummer).second = true;
+							boundaryEdges.at(Enummer).second = true;
+							Enummer++;
+							vertexNext = edges.at(boundaryEdges.at(i).first).at(0);
+							if (vertexNext == vertexA)
+								notDone = false;
+						}
+					}
+				}
+				listIndex++;
+			}
+		}
+		cout << "The number of boundary components is " << listIndex;
+
+		//Loop over all edges
+			//Store boundary edges in seperate list and add a marked int variable
+
+		//Loop over all boundary edges
+			// check if edge is unmarked
+				//make edge 'current edge' and mark it.
+				//store this edge in list
+				//Store first vertex of this edge in memory and use second vertex to find next boundary edge
+				//Loop over all boundary edges
+					//Find the boundary edge next to current edge, until first vertex of first boundary edge is found. (Should not find itself!)
+					//mark the next edge
+		
+		//Output the size of the list<lists>
+
+		
+
+		//draw this shit
+
+
+	}
+	
 }
 
 int connectedComponents(Mesh& m) {
@@ -195,24 +411,63 @@ int connectedComponents(Mesh& m) {
 	return res;
 }
 
+void iteratedAveraging(Mesh m, double step) {
+	generateVertexNeighbours(m);
+	averages.resize(m.vertices.size());
+		distanceMeshAverage.resize(m.vertices.size());
+	for (int i = 0; i < m.vertices.size(); i++) {
+		unsigned int nNeighbours = vertexNeighbours.at(i).size();
+		Vec3Df sum = { 0, 0, 0 };
+		for (int j = 0; j < nNeighbours; j++) {
+			sum += m.vertices.at(vertexNeighbours.at(i).at(j)).p;
+		}
+		float x = sum[0] / nNeighbours;
+		float y = sum[1] / nNeighbours;
+		float z = sum[2] / nNeighbours;
+		averages.at(i) = {x , y,z };
+		distanceMeshAverage.at(i).distance(m.vertices.at(i).p, averages.at(i));
+	}
+
+	for (int i = 0; i < m.vertices.size(); i++) {
+		m.vertices.at(i).p = m.vertices.at(i).p + step * distanceMeshAverage.at(i);
+	}
+
+
+	//Generate neighbour network 
+	//iterations user defined
+	//step size
+	//for loop
+		//Vector<Vec3Df> averages (as big as m.vertices)
+		//Vec3Df = average of all neighbours
+		//Vector<vec3Df> vector tussen de mesh vertices en de averages
+		//
+		//
+}
+
 /** Function that gets called on keypress 4 */
 void myFunction4(Mesh m) {
 	generateVertexNeighbours(m);
-	cout << connectedComponents(m);
+	cout << "This mesh consists of " << connectedComponents(m) << " connected component(s)\n";
 }
 
 /** Function that gets called on keypress 5 */
 void myFunction5(Mesh m) {
-	generateVertexNeighbours(m);
-	generateEdges(m);
-	for (int i = 0; i < edges.size(); i++) {
-		cout << "Edge number " + i;
-		cout << "Vertex 1 is " + edges.at(i).at(0);
-		cout << "Vertex 2 is " + edges.at(i).at(1);
-		cout << "Triangle 1 is " + edges.at(i).at(2);
-		if (edges.at(i).at(3) != NULL)
-			cout << "Triangle 2 is " + edges.at(i).at(3);
-	}
+	generateEdgesEfficient(m);
+	cout << "Edge Network created succesfully. This mesh has " << edges.size() << " edges.\n";
+}
+
+void myFunction6(Mesh m) {
+	boundaryVertices(m);
+	if (drawBoundaries)
+		drawBoundaries = false;
+	else
+		drawBoundaries = true;
+}
+
+void myFunctionS(Mesh m) {
+	double step = 1;
+	iteratedAveraging(m, step);
+	glutPostRedisplay();
 }
 
 /** Gets called once the mesh has to be drawn.
@@ -282,5 +537,21 @@ void draw(Mesh m) {
 		glEnd();
 		glColor3f(1.0, 1.0, 1.0);
 	}
+
+	if (drawBoundaries) {
+		glBegin(GL_LINES);
+		glColor3f(1.0, 1.0, 0.0);
+		for (int j = 0; j < boundaryEdgeNetwork.size(); j++) {
+			for (int i = 0; i < boundaryEdgeNetwork.at(j).size(); i++) {
+				Vec3Df vertexA = m.vertices.at(edges.at(boundaryEdgeNetwork.at(j).at(i).first).at(0)).p;
+				Vec3Df vertexB = m.vertices.at(edges.at(boundaryEdgeNetwork.at(j).at(i).first).at(1)).p;
+				glVertex3f(vertexA[0], vertexA[1], vertexA[2]);
+				glVertex3f(vertexB[0], vertexB[1], vertexB[2]);
+			}
+		}
+		glEnd();
+		glColor3f(1., 1., 1.);
+	}
+
 
 }

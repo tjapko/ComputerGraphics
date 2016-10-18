@@ -68,6 +68,11 @@ void keyboard(unsigned char key, int x, int y) {
 	case '5':
 		myFunction5(myMesh);
 		break;
+	case '6':
+		myFunction6(myMesh);
+		break;
+	case 's':
+		myFunctionS(myMesh);
 	}
 }
 
@@ -76,7 +81,7 @@ void keyboard(unsigned char key, int x, int y) {
 void init(int argc, char ** argv) {
 	glutInit(&argc, argv);
 
-	myMesh.loadMesh(argc == 2 ? argv[1] : "Tripple.obj");
+	myMesh.loadMesh(argc == 2 ? argv[1] : "DavidHeadCleanMax.obj");
 
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
 
@@ -97,12 +102,15 @@ void init(int argc, char ** argv) {
 	glutKeyboardFunc(keyboard);
 
     glEnable( GL_DEPTH_TEST );
-    glShadeModel(GL_SMOOTH);
+    glShadeModel(GL_FLAT);
 
     glClearColor (0.0, 0.0, 0.0, 0.0);
     glClear( GL_COLOR_BUFFER_BIT  | GL_DEPTH_BUFFER_BIT);
 
 	if (wireFrameMode) glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
+	glEnable(GL_LIGHTING);	glEnable(GL_LIGHT0);	GLfloat lightPos[] = { 0, 1.0, 1.0, 0 };
+	glLightfv(GL_LIGHT0, GL_POSITION, lightPos);
 }
 
 /** Initialize and then go straight
