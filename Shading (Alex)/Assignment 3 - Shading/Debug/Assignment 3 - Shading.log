@@ -1,0 +1,18 @@
+﻿  main.cpp
+c:\users\gebruiker\source\repos\computergraphics\shading (alex)\matrix.h(35): warning C4244: '+=': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\gebruiker\source\repos\computergraphics\shading (alex)\matrix.h(45): warning C4244: '+=': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\gebruiker\source\repos\computergraphics\shading (alex)\matrix.h(47): warning C4244: '=': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
+c:\users\gebruiker\source\repos\computergraphics\shading (alex)\traqueboule.h(13): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\gebruiker\source\repos\computergraphics\shading (alex)\traqueboule.h(105): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\gebruiker\source\repos\computergraphics\shading (alex)\traqueboule.h(128): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\gebruiker\source\repos\computergraphics\shading (alex)\traqueboule.h(159): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\gebruiker\source\repos\computergraphics\shading (alex)\traqueboule.h(208): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\gebruiker\source\repos\computergraphics\shading (alex)\yourcode.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\gebruiker\source\repos\computergraphics\shading (alex)\yourcode.h(48): warning C4305: '-=': truncation from 'double' to 'float'
+c:\users\gebruiker\source\repos\computergraphics\shading (alex)\yourcode.h(51): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\gebruiker\source\repos\computergraphics\shading (alex)\yourcode.h(120): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\gebruiker\source\repos\computergraphics\shading (alex)\yourcode.h(271): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\gebruiker\source\repos\computergraphics\shading (alex)\main.cpp(27): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\users\gebruiker\source\repos\computergraphics\shading (alex)\main.cpp(27): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Assignment 3 - Shading.vcxproj -> C:\Users\Gebruiker\Source\Repos\ComputerGraphics\Shading (Alex)\Debug\Assignment 3 - Shading.exe
+  Assignment 3 - Shading.vcxproj -> C:\Users\Gebruiker\Source\Repos\ComputerGraphics\Shading (Alex)\Debug\Assignment 3 - Shading.pdb (Partial PDB)

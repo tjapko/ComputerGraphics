@@ -10,7 +10,14 @@ Utilitaires pour appliquer une traqueboule a une fenetre OpenGL.
 #include "matrix.h"
 #include "stdio.h"
 #include "Vec3D.h"
+#include <iostream>
+#include <string>
+using namespace std;
 static const float speedfact = 0.2;
+static string helpText = "What would you like to do:\n1 - Toggle barycenters\n2 - Toggle normals\n3 - Toggle colored triangles\n"
+"4 - Generate VertexNeighbours and show number of connected components\n"
+"5 - Generate Edge Network and show number of edges\n6 - Toggle boundary edges and show number of connected boundary components\n"
+"7 - Toggle SmoothMap\nw - Toggle triangles\ns - Smooth the mesh\nh - help\n";
 
 /** votre fonction d'affichage */
 void display();

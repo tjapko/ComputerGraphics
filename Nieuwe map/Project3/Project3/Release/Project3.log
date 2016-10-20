@@ -1,0 +1,64 @@
+﻿  myFunctions.cpp
+..\myFunctions.cpp(71): warning C4305: 'argument': truncation from 'double' to 'float'
+..\myFunctions.cpp(72): warning C4305: 'argument': truncation from 'double' to 'float'
+..\myFunctions.cpp(110): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(116): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(161): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(168): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(169): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(195): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(198): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(218): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(221): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(222): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(228): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(237): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(281): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(290): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(297): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(307): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(319): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(377): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(386): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(393): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(403): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(415): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(456): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(459): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(468): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(485): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(488): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(499): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(500): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+..\myFunctions.cpp(517): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(526): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(535): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(542): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(547): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(552): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+..\myFunctions.cpp(563): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(574): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+..\myFunctions.cpp(576): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+..\myFunctions.cpp(592): warning C4305: 'initializing': truncation from 'double' to 'float'
+..\myFunctions.cpp(595): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(644): warning C4551: function call missing argument list
+..\myFunctions.cpp(761): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(773): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(812): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+..\myFunctions.cpp(835): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+..\myFunctions.cpp(854): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+..\myFunctions.cpp(873): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+..\myFunctions.cpp(892): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+..\myFunctions.cpp(911): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+..\myFunctions.cpp(911): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(936): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(937): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(950): warning C4018: '<': signed/unsigned mismatch
+..\myFunctions.cpp(951): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+  Generating code
+  0 of 1157 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    10 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Project3.vcxproj -> C:\Users\Gebruiker\Source\Repos\ComputerGraphics\Project3\Release\Project3.exe
+  Project3.vcxproj -> C:\Users\Gebruiker\Source\Repos\ComputerGraphics\Project3\Release\Project3.pdb (Full PDB)

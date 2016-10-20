@@ -1,0 +1,22 @@
+﻿  main.cpp
+c:\users\alex\source\repos\computergraphics\assignment 3 - shading\matrix.h(35): warning C4244: '+=': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\alex\source\repos\computergraphics\assignment 3 - shading\matrix.h(45): warning C4244: '+=': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\alex\source\repos\computergraphics\assignment 3 - shading\matrix.h(47): warning C4244: '=': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
+c:\users\alex\source\repos\computergraphics\assignment 3 - shading\traqueboule.h(13): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\alex\source\repos\computergraphics\assignment 3 - shading\traqueboule.h(105): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\alex\source\repos\computergraphics\assignment 3 - shading\traqueboule.h(128): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\alex\source\repos\computergraphics\assignment 3 - shading\traqueboule.h(159): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\alex\source\repos\computergraphics\assignment 3 - shading\traqueboule.h(208): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\alex\source\repos\computergraphics\assignment 3 - shading\yourcode.h(20): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\alex\source\repos\computergraphics\assignment 3 - shading\yourcode.h(48): warning C4305: '-=': truncation from 'double' to 'float'
+c:\users\alex\source\repos\computergraphics\assignment 3 - shading\yourcode.h(51): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\alex\source\repos\computergraphics\assignment 3 - shading\yourcode.h(120): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+..\main.cpp(27): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+..\main.cpp(27): warning C4305: 'initializing': truncation from 'double' to 'float'
+  Generating code
+  Finished generating code
+  4 of 442 functions ( 0.9%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    24 functions had inline decision re-evaluated but remain unchanged
+  Assignment 3 - Shading.vcxproj -> C:\Users\Alex\Source\Repos\ComputerGraphics\Assignment 3 - Shading\Release\Assignment 3 - Shading.exe
+  Assignment 3 - Shading.vcxproj -> C:\Users\Alex\Source\Repos\ComputerGraphics\Assignment 3 - Shading\Release\Assignment 3 - Shading.pdb (Full PDB)

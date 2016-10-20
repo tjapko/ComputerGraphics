@@ -11,7 +11,7 @@ you should implement.
 #include "mesh.h"
 #include "myFunctions.h"
 
-Mesh myMesh;
+static Mesh myMesh;
 bool wireFrameMode = true;
 
 /* Function that gets called
@@ -47,7 +47,8 @@ void keyboard(unsigned char key, int x, int y) {
 		if (wireFrameMode) {
 			wireFrameMode = false;
 			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-		} else {
+		}
+		else {
 			wireFrameMode = true;
 			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 		}
@@ -71,8 +72,24 @@ void keyboard(unsigned char key, int x, int y) {
 	case '6':
 		myFunction6(myMesh);
 		break;
+	case '7':
+		myFunction7(myMesh);
+		break;
+	case '8':
+		myFunction8(myMesh);
+		break;
+	case '9':
+		myMesh = myFunction9(myMesh);
+		break;
+	case '0':
+		myFunction0(myMesh);
+		break;
 	case 's':
-		myFunctionS(myMesh);
+		myMesh = myFunctionS(myMesh);
+		break;
+	case 'h':
+		myFunctionH();
+		break;
 	}
 }
 
@@ -85,7 +102,7 @@ void init(int argc, char ** argv) {
 
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
 
-	glutInitWindowPosition(200, 100);
+	glutInitWindowPosition(600, 100);
     glutInitWindowSize(800,800);
 	glutCreateWindow("Model Viewer");
 
@@ -102,15 +119,15 @@ void init(int argc, char ** argv) {
 	glutKeyboardFunc(keyboard);
 
     glEnable( GL_DEPTH_TEST );
-    glShadeModel(GL_FLAT);
+    glShadeModel(GL_SMOOTH);
 
     glClearColor (0.0, 0.0, 0.0, 0.0);
     glClear( GL_COLOR_BUFFER_BIT  | GL_DEPTH_BUFFER_BIT);
 
 	if (wireFrameMode) glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
-	glEnable(GL_LIGHTING);	glEnable(GL_LIGHT0);	GLfloat lightPos[] = { 0, 1.0, 1.0, 0 };
-	glLightfv(GL_LIGHT0, GL_POSITION, lightPos);
+	/*glEnable(GL_LIGHTING);	glEnable(GL_LIGHT0);	GLfloat lightPos[] = { 0, 1.0, 1.0, 0 };
+	glLightfv(GL_LIGHT0, GL_POSITION, lightPos);*/
 }
 
 /** Initialize and then go straight
